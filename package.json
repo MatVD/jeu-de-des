@@ -1,0 +1,22 @@
+{
+  "name": "jeu-de-des",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatVD/jeu-de-des.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatVD/jeu-de-des/issues"
+  },
+  "homepage": "https://github.com/MatVD/jeu-de-des#readme",
+  "devDependencies": {
+    "jasmine": "^4.3.0"
+  }
+}
