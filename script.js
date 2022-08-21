@@ -1,10 +1,7 @@
 // === jeu de dé === //
 
 // Play game
-function playGame() {
-    let currentScorre = 0;
-    let globalScore = 0;
-}
+function playGame() {}
 
 // Player 1 roll the dice 
 function rollDice() {}
@@ -18,4 +15,4 @@ function rollDice() {}
 
 // 2 round
 
-    // Display global score
+    // Display global scores 
