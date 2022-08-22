@@ -8,9 +8,13 @@
   src: url(/fonts/Lato/Lato-Regular.ttf);
 }
 
+@font-face {
+  font-family: lightFont;
+  src: url(/fonts/Lato/Lato-Light.ttf);
+}
 
 /* ======= global ======= */
 body {
-  font-family: RegularFont, Arial, Helvetica, sans-serif;
+  font-family: lightFont, Arial, Helvetica, sans-serif;
   text-transform: uppercase;
 }
