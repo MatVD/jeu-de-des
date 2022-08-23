@@ -15,11 +15,11 @@
   <body>
     <h1 class="text-center m-10">New game</h1>
 
-    <main class="flex flex-col md:flex-row justify-around items-center w-full h-[80vh] md:p-5">
-      <div id="player1" class="flex flex-col justify-around items-center text-center w-full md:h-screen">
+    <main class="flex flex-col md:flex-row justify-center items-center w-full h-[80vh] md:p-5">
+      <div id="player1" class="flex flex-col justify-around items-center text-center w-full md:h-screen basis-2/5">
         <div>
           <h2 class="text-3xl">Player 1</h2>
-          <p class="text-8xl text-red-500">0</p>
+          <p class="text-6xl md:text-8xl text-red-500 my-3">0</p>
         </div>
 
         <div class="flex flex-col justify-evenly bg-red-500 w-28 h-20 md:mb-[80px]">
@@ -28,19 +28,19 @@
         </div>
       </div>
 
-      <div class="flex flex-col md:justify-evenly items-center w-full md:h-screen relative">
+      <div class="flex flex-col md:justify-evenly items-center w-full md:h-screen relative basis-1/5">
         <canvas class="max-w-100 m-5" width="100" height="100"></canvas>
 
         <div class="flex text-center md:flex-col">
-          <p class="absolute left-6 bottom-[50px] md:m-5">roll dice</p>
-          <p class="absolute right-6 bottom-[50px] md:m-5">hold</p>
+          <p class="absolute left-10 bottom-[50px] md:static md:m-5">roll dice</p>
+          <p class="absolute right-10 bottom-[50px] md:static md:m-5">hold</p>
         </div>
       </div>
 
-      <div id="player2" class="flex flex-col justify-around items-center text-center w-full md:h-screen">
+      <div id="player2" class="flex flex-col justify-around items-center text-center w-full md:h-screen basis-2/5">
         <div>
           <h2 class="text-3xl">Player 2</h2>
-          <p class="text-8xl text-red-500">0</p>
+          <p class="text-6xl md:text-8xl text-red-500 my-3">0</p>
         </div>
 
         <div class="flex flex-col justify-evenly bg-red-500 w-28 h-20 md:mb-[80px]">
