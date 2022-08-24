@@ -18,3 +18,39 @@ body {
   font-family: lightFont, Arial, Helvetica, sans-serif;
   text-transform: uppercase;
 }
+
+/* ======= bg-bicolor ======= */
+.split-background{
+  background-color: #013A6B;
+  background-image: -webkit-linear-gradient(90deg, rgb(250, 250, 250) 50%, rgb(230, 230, 230) 50%);
+}
+
+@media (min-width: 768px) {
+  .split-background{
+    background-color: #013A6B;
+    background-image: -webkit-linear-gradient(180deg, rgb(250, 250, 250) 50%, rgb(230, 230, 230) 50%);
+  }
+}
+
+
+/* ======= symboles avant new game, roll et hold ======= */
+h1::before {
+  font: var(--fa-font-solid);
+  content: "\f055";
+  color: #EF4444;
+  margin-right: 5px;
+}
+
+#roll::before {
+  font: var(--fa-font-solid);
+  content: "\f2f1";
+  color: #EF4444;
+  margin-right: 5px;
+}
+
+#hold::before {
+  font: var(--fa-font-solid);
+  content: "\e4b8";
+  color: #EF4444;
+  margin-right: 5px;
+}
