@@ -12,9 +12,10 @@
     <script src="https://kit.fontawesome.com/6e99e97248.js" crossorigin="anonymous"></script>
     <title>Jeu de dés</title>
   </head>
-  <body class="bg-gradient-to-b from-amber-600 to-amber-900">
-    <main class="split-background m-5 pb-5 h-screen">
-      <h1 class="absolute left-7 top-5 md:static text-center pt-5">New game</h1>
+  <body class="bg-gradient-to-b from-amber-600 to-amber-900 h-screen">
+    <main class="split-background m-5 pb-5 h-full">
+      
+      <h1 type="button" id="newGame" class="absolute left-7 top-5 md:static text-center py-4 cursor-pointer animate-pulse"> New game</h1>
 
       <div
         class="flex flex-col md:flex-row justify-center items-center md:relative bottom-5 w-full h-full"
@@ -25,7 +26,7 @@
         >
           <div>
             <h2 class="text-2xl md:text-3xl">Player 1</h2>
-            <p class="text-6xl md:text-8xl text-red-500 my-2">0</p>
+            <p id="currentScore1" class="text-6xl md:text-8xl text-red-500 my-2">0</p>
           </div>
 
           <div class="flex flex-col justify-evenly bg-red-500 w-28 h-20">
@@ -45,7 +46,7 @@
           ></canvas>
 
           <div class="flex text-center md:flex-col">
-            <p id="roll" class="text-sm absolute left-2 bottom-[69px] md:static md:m-5">
+            <p id="rollDice" class="text-sm absolute left-2 bottom-[69px] md:static md:m-5">
                roll dice
             </p>
             <p id="hold" class="text-sm absolute right-2 bottom-[69px] md:static md:m-5">hold</p>
@@ -58,7 +59,7 @@
         >
           <div>
             <h2 class="text-2xl md:text-3xl">Player 2</h2>
-            <p class="text-6xl md:text-8xl text-red-500 my-2">0</p>
+            <p id="currentScore2" class="text-6xl md:text-8xl text-red-500 my-2">0</p>
           </div>
 
           <div class="flex flex-col justify-evenly bg-red-500 w-28 h-20">
@@ -68,5 +69,7 @@
         </div>
       </div>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
