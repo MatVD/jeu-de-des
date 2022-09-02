@@ -26,12 +26,12 @@
         >
           <div>
             <h2 class="text-2xl md:text-3xl">Player 1</h2>
-            <p id="currentScore1" class="text-6xl md:text-8xl text-red-500 my-2">0</p>
+            <p id="globalScore1" class="text-6xl md:text-8xl text-red-500 my-2">0</p>
           </div>
 
           <div class="flex flex-col justify-evenly bg-red-500 w-28 h-20">
             <p>current</p>
-            <p class="text-2xl text-white">0</p>
+            <p id="currentScore1" class="text-2xl text-white">0</p>
           </div>
         </div>
 
@@ -46,10 +46,10 @@
           ></canvas>
 
           <div class="flex text-center md:flex-col">
-            <p id="rollDice" class="text-sm absolute left-2 bottom-[69px] md:static md:m-5">
+            <p id="rollDice" class="text-sm absolute left-2 bottom-[69px] md:static md:m-5 cursor-pointer animate-pulse">
                roll dice
             </p>
-            <p id="hold" class="text-sm absolute right-2 bottom-[69px] md:static md:m-5">hold</p>
+            <p id="hold" class="text-sm absolute right-2 bottom-[69px] md:static md:m-5 cursor-pointer animate-pulse">hold</p>
           </div>
         </div>
 
@@ -59,12 +59,12 @@
         >
           <div>
             <h2 class="text-2xl md:text-3xl">Player 2</h2>
-            <p id="currentScore2" class="text-6xl md:text-8xl text-red-500 my-2">0</p>
+            <p id="globalScore2" class="text-6xl md:text-8xl text-red-500 my-2">0</p>
           </div>
 
           <div class="flex flex-col justify-evenly bg-red-500 w-28 h-20">
             <p>current</p>
-            <p class="text-2xl text-white">0</p>
+            <p id="currentScore2" class="text-2xl text-white">0</p>
           </div>
         </div>
       </div>

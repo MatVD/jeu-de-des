@@ -41,7 +41,7 @@ h1::before {
   margin-right: 5px;
 }
 
-#roll::before {
+#rollDice::before {
   font: var(--fa-font-solid);
   content: "\f2f1";
   color: #EF4444;
