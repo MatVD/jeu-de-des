@@ -32,6 +32,7 @@ function playGame() {
   } else if (player2) {
     currentScore2Node.textContent = 0;
     let pointed = document.getElementById('pointed2');
+    pointed.style.display = "initial";
     player2 = rollDice(currentScore2Node, globalScore2Node, player2);
 
   }
@@ -90,7 +91,7 @@ function rollDice(currentScoreNode, globalScoreNode, player) {
 };
 
 // function  for push current in global
-function hold(currentScoreNode, globalScoreNode) {
+function hold(currentScoreNode, globalScoreNode, player) {
   let hold = document.getElementById('hold');
   let globalScoreInt = parseInt(globalScoreNode.textContent);
   let currentScoreInt = parseInt(currentScoreNode.textContent);
