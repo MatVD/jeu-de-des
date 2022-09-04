@@ -7,22 +7,35 @@
 // -Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
 // Le premier joueur qui atteint les 100 points sur global gagne le jeu.
 
+
 // Play game //
 function playGame() {
-  // Joueur 1
+  let player1 = true;
   let globalScore1Node = document.getElementById('globalScore1');
   let currentScore1Node = document.getElementById('currentScore1');
   globalScore1Node.textContent = 0;
   currentScore1Node.textContent = 0;
 
-  // Joueur 2
+  let player2 = false;
   let globalScore2Node = document.getElementById('globalScore2');
   let currentScore2Node = document.getElementById('currentScore2');
   globalScore2Node.textContent = 0;
   currentScore2Node.textContent = 0;
 
-  rollDice(currentScore1Node, globalScore1Node)
-  rollDice(currentScore2Node, globalScore2Node)
+  // Round
+  if (player1) {
+    currentScore2Node.textContent = 0;
+    let pointed = document.getElementById('pointed1');
+    pointed.style.display = "initial"
+    player1 = rollDice(currentScore1Node, globalScore1Node, player1);
+
+  } else if (player2) {
+    currentScore2Node.textContent = 0;
+    let pointed = document.getElementById('pointed2');
+    player2 = rollDice(currentScore2Node, globalScore2Node, player2);
+
+  }
+  
 };
 
 let newGame = document.getElementById('newGame');
@@ -32,11 +45,13 @@ newGame.addEventListener('click', () => {
 
 
 
-// Fonction Roll the dice => lancer le dé //
-function rollDice(currentScoreNode, globalScoreNode) {
+// Function Roll the dice
+function rollDice(currentScoreNode, globalScoreNode, player) {
   let rollDice = document.getElementById('rollDice');
   let currentScoreInt = parseInt(currentScoreNode.textContent);
   
+  // function who encapsulate the result of currentScore
+  // and re-use it for hold
   function switchCase() {
     let number = () => {
       return Math.round(Math.random() * (6 - 1) + 1);
@@ -45,6 +60,8 @@ function rollDice(currentScoreNode, globalScoreNode) {
     switch (number()) {
       case 1:
         currentScoreNode.textContent = 0 ;
+        alert("Vous êtes tombé sur le nombre 1: vous perdez votre score courant et la main est à l'autre joueur")
+        player = false;
         break;
       case 2:
         currentScoreNode.textContent = currentScoreInt += 2;
@@ -66,13 +83,13 @@ function rollDice(currentScoreNode, globalScoreNode) {
         console.log("Un problème est survenue");
         break;
     }
-    hold(currentScoreNode, globalScoreNode)
+    hold(currentScoreNode, globalScoreNode, player)
   };
 
   rollDice.addEventListener('click', switchCase);
 };
 
-// fonction pour transferer le current
+// function  for push current in global
 function hold(currentScoreNode, globalScoreNode) {
   let hold = document.getElementById('hold');
   let globalScoreInt = parseInt(globalScoreNode.textContent);
@@ -80,17 +97,14 @@ function hold(currentScoreNode, globalScoreNode) {
 
 
   hold.addEventListener('click', () => {
-    currentScoreNode.textContent = 0;
+    currentScoreNode.textContent = 0; // current turn to zero
     globalScoreNode.textContent = globalScoreInt += currentScoreInt;
+    player = false;
   });
-
 };
 
 
 
-// 2 round
-
-    // Display global scores 
 
 
 // ================= Canvas du dé ================== //

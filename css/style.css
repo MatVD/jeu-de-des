@@ -33,7 +33,7 @@ body {
 }
 
 
-/* ======= symboles avant new game, roll et hold ======= */
+/* ======= symboles pour new game, roll, hold et player ======= */
 h1::before {
   font: var(--fa-font-solid);
   content: "\f055";
