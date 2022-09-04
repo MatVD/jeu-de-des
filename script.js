@@ -10,17 +10,19 @@
 // Play game //
 function playGame() {
   // Joueur 1
-  let globalScore1 = document.getElementById('globalScore1');
-  let currentScore1 = document.getElementById('currentScore1');
-  globalScore1.textContent = 0;
-  currentScore1.textContent = 0;
+  let globalScore1Node = document.getElementById('globalScore1');
+  let currentScore1Node = document.getElementById('currentScore1');
+  globalScore1Node.textContent = 0;
+  currentScore1Node.textContent = 0;
 
   // Joueur 2
-  let globalScore2 = document.getElementById('globalScore2');
-  let currentScore2 = document.getElementById('currentScore2');
-  globalScore2.textContent = 0;
-  currentScore2.textContent = 0;
-  
+  let globalScore2Node = document.getElementById('globalScore2');
+  let currentScore2Node = document.getElementById('currentScore2');
+  globalScore2Node.textContent = 0;
+  currentScore2Node.textContent = 0;
+
+  rollDice(currentScore1Node, globalScore1Node)
+  rollDice(currentScore2Node, globalScore2Node)
 };
 
 let newGame = document.getElementById('newGame');
@@ -29,63 +31,61 @@ newGame.addEventListener('click', () => {
 })
 
 
-// Player 1 roll the dice //
-function rollDice() {
-  let rollDice = document.getElementById('rollDice');
-  let currentScore1 = document.getElementById('currentScore1');
-  let currentScore1Int = parseInt(currentScore1.textContent)
 
+// Fonction Roll the dice => lancer le dé //
+function rollDice(currentScoreNode, globalScoreNode) {
+  let rollDice = document.getElementById('rollDice');
+  let currentScoreInt = parseInt(currentScoreNode.textContent);
   
-  rollDice.addEventListener('click', () => {
+  function switchCase() {
     let number = () => {
       return Math.round(Math.random() * (6 - 1) + 1);
-    }; 
+    };   
 
     switch (number()) {
       case 1:
-        currentScore1.textContent = currentScore1Int += 0 ;
+        currentScoreNode.textContent = 0 ;
         break;
       case 2:
-        currentScore1.textContent = currentScore1Int += 2;
+        currentScoreNode.textContent = currentScoreInt += 2;
         break;
       case 3:
-        currentScore1.textContent = currentScore1Int += 3;
+        currentScoreNode.textContent = currentScoreInt += 3;
         break;
       case 4:
-        currentScore1.textContent = currentScore1Int += 4;
+        currentScoreNode.textContent = currentScoreInt += 4;
         break;
       case 5:
-        currentScore1.textContent = currentScore1Int += 5;
+        currentScoreNode.textContent = currentScoreInt += 5;
         break;
       case 6:
-        currentScore1.textContent = currentScore1Int += 6;
+        currentScoreNode.textContent = currentScoreInt += 6;
         break;
     
       default:
         console.log("Un problème est survenue");
         break;
     }
-    console.log(typeof(currentScore1.textContent));
-    return parseInt(currentScore1.textContent);
-  });
+    hold(currentScoreNode, globalScoreNode)
+  };
+
+  rollDice.addEventListener('click', switchCase);
 };
-let currentScore = rollDice();
 
-function hold(currentScore) {
-  console.log(typeof(currentScore));
-  let globalScore1 = document.getElementById('globalScore1');
+// fonction pour transferer le current
+function hold(currentScoreNode, globalScoreNode) {
   let hold = document.getElementById('hold');
+  let globalScoreInt = parseInt(globalScoreNode.textContent);
+  let currentScoreInt = parseInt(currentScoreNode.textContent);
 
-  let globalScore1Int = parseInt(globalScore1.textContent);
 
   hold.addEventListener('click', () => {
-    globalScore1.textContent = globalScore1Int += currentScore;
-  })
-}
-hold(currentScore);
+    currentScoreNode.textContent = 0;
+    globalScoreNode.textContent = globalScoreInt += currentScoreInt;
+  });
 
+};
 
-// Player 2 roll the dice
 
 
 // 2 round
