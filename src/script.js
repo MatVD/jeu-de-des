@@ -34,6 +34,28 @@ let joueur2 = {
 //                 Algos du jeu
 // ============================================ //
 
+
+// Fonction retournant un nombre aléatoire entre 1 - 6
+function randomNumber() {
+  return Math.round(Math.random() * (6 - 1)) + 1;
+};
+
+// Fonction remettant tout les score à zéro
+function resetToZero() {
+  joueur1.globalScoreNode.innerHTML = 0;
+  joueur1.currentScoreNode.innerHTML = 0;
+  joueur2.globalScoreNode.innerHTML = 0;
+  joueur2.currentScoreNode.innerHTML = 0;
+};
+
+// Fonction fin de partie
+function endGame(joueurActif) {
+  if (joueurActif.globalScoreNode.innerHTML >= 100) {
+    alert(`Le joueur ${joueurActif.id} à gagné la partie`);
+    jeuActif = false;
+  };
+};
+
 // Récupération de la donnée DOM pour une nouvelle partie
 // Nouvelle partie au click sur btn "New game" 
 let btnNewGame = document.getElementById('newGame');
@@ -44,19 +66,13 @@ btnNewGame.onclick = (e) => {
   jeuActif = true;
 
   // Remise à zéro des scores en début de partie
-  joueur1.globalScoreNode.innerHTML = 0;
-  joueur1.currentScoreNode.innerHTML = 0;
-  joueur2.globalScoreNode.innerHTML = 0;
-  joueur2.currentScoreNode.innerHTML = 0;
+  resetToZero();
 
   // Par défaut, en début de partie, joueur 1 est actif
   let joueurActif = joueur2;
   
   // Algo du tour par tour
   function switchPlayer(joueurActif) {
-
-
-    
 
     joueurActif = joueurActif == joueur2 ? joueur1 : joueur2;
     
@@ -100,9 +116,7 @@ function rollTheDice(joueurActif, switchPlayer) {
 
     // Fonction pour générer et récupérer un nombre aléatoire
     // entre 1 et 6
-     let number = function randomNumber() {
-       return Math.round(Math.random() * (6 - 1)) + 1;
-     }();
+     let number = randomNumber();
    
     // Selon le nombre récupéré, un switch/case 
     switch (number) {
@@ -144,16 +158,13 @@ function rollTheDice(joueurActif, switchPlayer) {
 function pushInGlobal(joueurActif, switchPlayer) {
   // Fonction permettant d'envoyer le score courrant dans le global
 
-  // Récupéartion de l'élément du DOM
-  // Au click, le score courant est transféré dans le global
   let hold = document.getElementById('hold');
   hold.onclick = (e) => {
     e.stopPropagation();
 
-    // Image du dé par défault
+    // Retour image du dé par défault
     let img = document.getElementById('imgDe');
     img.src = "../images/defautFace.png";
-    img.style.display = "initial";
     
     // D'abord parseInt, pour facilité l'addition
     let currentScore = parseInt(joueurActif.currentScoreNode.innerHTML);
@@ -163,14 +174,12 @@ function pushInGlobal(joueurActif, switchPlayer) {
     // Et enfin remise à zéro du score courant
     joueurActif.currentScoreNode.innerHTML = currentScore = 0;
     // et s'il est supérieur ou égal a 100
-    if (joueurActif.globalScoreNode.innerHTML >= 100) {
-      alert(`Le joueur ${joueurActif.id} à gagné la partie`);
-      jeuActif = false;
-    }
+    endGame(joueurActif);
 
     // Appel a la fonction switchPlayer (cf. règles du jeu)
     switchPlayer(joueurActif);
   };
 };
+
 
 //
