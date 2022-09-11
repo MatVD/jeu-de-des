@@ -55,6 +55,9 @@ btnNewGame.onclick = (e) => {
   // Algo du tour par tour
   function switchPlayer(joueurActif) {
 
+
+    
+
     joueurActif = joueurActif == joueur2 ? joueur1 : joueur2;
     
     // Récupération des marqueurs (point rouge) devant le joueur actif
@@ -91,7 +94,10 @@ function rollTheDice(joueurActif, switchPlayer) {
     
     // Changement du type str en int pour facilité l'addition
     let currentScore = parseInt(joueurActif.currentScoreNode.innerHTML);
-    
+
+    // Récupération de l'élément image
+    let img = document.getElementById('imgDe');
+
     // Fonction pour générer et récupérer un nombre aléatoire
     // entre 1 et 6
      let number = function randomNumber() {
@@ -101,24 +107,30 @@ function rollTheDice(joueurActif, switchPlayer) {
     // Selon le nombre récupéré, un switch/case 
     switch (number) {
       case 1:
+        img.src = "../images/face1.png";
         joueurActif.currentScoreNode.innerHTML = currentScore = 0;
         alert("Vous êtes tombé sur le nombre 1: votre score courrant tombe à zéro et la main est à l'autre joueur");
         // Appel à la fonction switchplayer (cf. règles du jeu)
         switchPlayer(joueurActif);
         break;
       case 2:
+        img.src = "../images/face2.png";
         joueurActif.currentScoreNode.innerHTML = currentScore += 2;
         break;
       case 3:
+        img.src = "../images/face3.png";
         joueurActif.currentScoreNode.innerHTML = currentScore += 3;
         break;
       case 4:
+        img.src = "../images/face4.png";
         joueurActif.currentScoreNode.innerHTML = currentScore += 4;
         break;
       case 5:
+        img.src = "../images/face5.png";
         joueurActif.currentScoreNode.innerHTML = currentScore += 5;
         break;
       case 6:
+        img.src = "../images/face6.png";
         joueurActif.currentScoreNode.innerHTML = currentScore += 6;
         break;
   
@@ -137,22 +149,28 @@ function pushInGlobal(joueurActif, switchPlayer) {
   let hold = document.getElementById('hold');
   hold.onclick = (e) => {
     e.stopPropagation();
+
+    // Image du dé par défault
+    let img = document.getElementById('imgDe');
+    img.src = "../images/defautFace.png";
+    img.style.display = "initial";
     
     // D'abord parseInt, pour facilité l'addition
     let currentScore = parseInt(joueurActif.currentScoreNode.innerHTML);
     let globalScore = parseInt(joueurActif.globalScoreNode.innerHTML);
      // puis ajout du courant dans global,
     joueurActif.globalScoreNode.innerHTML = globalScore += currentScore;
+    // Et enfin remise à zéro du score courant
+    joueurActif.currentScoreNode.innerHTML = currentScore = 0;
     // et s'il est supérieur ou égal a 100
     if (joueurActif.globalScoreNode.innerHTML >= 100) {
       alert(`Le joueur ${joueurActif.id} à gagné la partie`);
       jeuActif = false;
     }
-    // Et enfin remise à zéro du score courant
-    joueurActif.currentScoreNode.innerHTML = currentScore = 0;
 
     // Appel a la fonction switchPlayer (cf. règles du jeu)
     switchPlayer(joueurActif);
   };
 };
 
+//

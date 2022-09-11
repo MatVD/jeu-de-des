@@ -2,9 +2,10 @@
   "name": "jeu-de-des",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "private": "true",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "build": "build"
   },
   "repository": {
     "type": "git",
@@ -18,14 +19,6 @@
   "homepage": "https://github.com/MatVD/jeu-de-des#readme",
   "devDependencies": {
     "jasmine": "^4.3.0",
-    "tailwindcss": "^3.1.8",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.0",
-    "webpack-merge": "^5.8.0"
-  },
-  "dependencies": {
-    "@splinetool/loader": "^0.9.106",
-    "three": "^0.143.0"
+    "tailwindcss": "^3.1.8"
   }
 }
