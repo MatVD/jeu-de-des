@@ -5,6 +5,7 @@
     "node": "16.x"
   },
   "description": "",
+  "main": "script.js",
   "private": "true",
   "scripts": {
     "test": "jasmine",
