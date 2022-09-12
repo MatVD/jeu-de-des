@@ -6,10 +6,8 @@
   },
   "description": "",
   "main": "script.js",
-  "private": "true",
   "scripts": {
-    "test": "jasmine",
-    "build": "build"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
